@@ -1,0 +1,157 @@
+
+body{
+    padding: 2rem;
+    text-align: center;
+}
+
+h1{
+    color: #4456ff;
+}
+#game {
+    display : flex;
+    justify-content:center;
+    gap : 4rem;
+    align-items: baseline;
+}
+#your-choice, #computer-choice {
+    width  :6rem;
+    height : 6rem;
+border: solid 1px #999;
+border-radius: 3rem;
+font-size: 4rem;
+line-height: 7rem;
+}
+
+label{
+    font-size:  2rem;
+}
+
+#rock-rock:checked ~ #game #your-choice::before, 
+#rock-paper:checked ~ #game #your-choice::before, 
+#rock-scissors:checked ~ #game #your-choice::before
+{
+    content : "✊";
+}
+#paper-rock:checked ~ #game #your-choice::before,
+#paper-paper:checked ~ #game #your-choice::before,
+#paper-scissors:checked ~ #game #your-choice::before
+{
+    content : "🖐️";
+}
+#scissors-rock:checked ~ #game #your-choice::before,
+#scissors-paper:checked ~ #game #your-choice::before,
+#scissors-scissors:checked ~ #game #your-choice::before
+{
+    content : "✌️";
+}
+
+#rock-rock:checked ~ #game #computer-choice::before,
+#paper-rock:checked ~ #game #computer-choice::before,
+#scissors-rock:checked ~ #game #computer-choice::before
+{
+    content : "✊";
+}
+#rock-paper:checked ~ #game #computer-choice::before,
+#paper-paper:checked ~ #game #computer-choice::before,
+#scissors-paper:checked ~ #game #computer-choice::before
+{
+    content : "🖐️";
+}
+#rock-scissors:checked ~ #game #computer-choice::before,
+#paper-scissors:checked ~ #game #computer-choice::before,
+#scissors-scissors:checked ~ #game #computer-choice::before
+{
+    content : "✌️";
+}
+
+#choices{
+    display : flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#choices > div {
+    position: relative;
+    width:3rem;
+    height:3rem;
+border: solid 1px #999;
+border-radius: 1.5rem;
+line-height: 3.5rem;
+}
+
+
+label{
+    position: absolute;
+    inset : 0;
+ animation : loop 0.2s infinite ;
+}
+
+label:nth-of-type(1) {
+ animation-delay: 0s;
+}
+
+label:nth-of-type(2) {
+    animation-delay: 0.1s;
+   }
+
+   label:nth-of-type(3) {
+    animation-delay: 0.2s;
+   }
+
+
+
+@keyframes loop {
+    from {
+        z-index: 1;
+    }
+    to {
+        z-index: 3;
+    }
+}
+
+button{
+    margin: 2rem auto 0;
+    background-color: #4456ff;
+    color:aliceblue;
+    border:0;
+    padding: 10px 16px;
+    border-radius: 5px;
+
+    display: none;
+}
+
+#result{
+    background-color: #efefef;
+    padding:1rem;
+    margin-top:2rem;
+    display : none;
+}
+input[type="radio"]:checked ~ button, 
+input[type="radio"]:checked ~ #result
+{
+    display : block;
+}
+
+#rock-rock:checked ~ #result::before,
+#paper-paper:checked~ #result::before,
+#scissors-scissors:checked ~ #result::before{
+    content : "It's a tie 🤐";
+}
+
+#rock-scissors:checked ~ #result::before,
+#paper-rock:checked~ #result::before,
+#scissors-paper:checked ~ #result::before{
+    content : "You won🤩";
+    color: darkgreen;
+}
+
+#rock-paper:checked ~ #result::before,
+#paper-scissors:checked  ~ #result::before,
+#scissors-rock:checked ~ #result::before{
+    content : "You lose😞";
+    color:brown;
+}
+
+input[type="radio"] {
+    display:none;
+}
